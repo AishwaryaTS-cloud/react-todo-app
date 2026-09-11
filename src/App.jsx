@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import "./App.css";
 import InputContainer from './components/InputContainer';
 import TodoContainer from './components/TodoContainer';
@@ -6,7 +6,15 @@ import TodoContainer from './components/TodoContainer';
 function App() {
 
   const [inputVal, setInputVal] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   function writeTodo(e) {
     setInputVal(e.target.value);

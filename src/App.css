@@ -1,64 +1,137 @@
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  background-color: #457B9D;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
 }
 
-h1{
+main {
+  width: 550px;
+  max-width: 90%;
+  margin: 60px auto;
+}
+
+h1 {
   text-align: center;
+  margin-bottom: 25px;
 }
 
-.input-container{
+
+/* Input */
+
+.input-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.input-container > input{
-  width: 300px;
-  height: 30px;
-  font-size: 1.25rem;
+.input-container > input {
+  flex: 1;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
 }
 
-.input-container > button{
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  font: 1.5rem;
-  background-color: #E63946;
+.input-container > input:focus {
+  border-color: #777;
+}
+
+.input-container > button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 6px;
+  background-color: #333;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.input-container > button:hover {
+  background-color: #555;
+}
+
+
+/* Todo Container */
+
+.container {
   margin-top: 20px;
-}
-
-.container{
-  margin-top: 15px ;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap : 10px;
+  gap: 8px;
 }
 
-.todo{
-  width: 500px;
-  font-size: 1.2rem;
+
+/* Todo */
+
+.todo {
+  width: 100%;
+  min-height: 45px;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
-  background-color: #F1FAEE;
-  padding: 0px 5px;
-  margin-bottom: 10px;
+
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-.actions > button{
-  background-color: #E63946;
-  color: white;
-  height: 30px;
-  width: 75px;
-  border-radius: 10px;
-  font-size: 1.05rem;
-  margin-left: 10px;
+.todo p {
+  margin: 0;
+  word-break: break-word;
 }
+
+
+/* Actions */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions > input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.actions > button {
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+
+  background-color: #e74c3c;
+  color: white;
+
+  cursor: pointer;
+}
+
+.actions > button:hover {
+  background-color: #c0392b;
+}
+
+
+/* Completed Todo */
 
 .completed {
   text-decoration: line-through;
   opacity: 0.5;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  main {
+    margin-top: 40px;
+  }
+
+  .todo {
+    padding: 5px 8px;
+  }
 }

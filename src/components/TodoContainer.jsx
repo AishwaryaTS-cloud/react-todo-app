@@ -1,12 +1,18 @@
 import React from "react";
 import Todo from "./Todo";
 
-function TodoContainer({ todos }) {
+function TodoContainer({ todos, deleteTodo, toggleTodo }) {
   return (
     <div className="container">
-      {todos.map((todo) => {
+      {todos.map((todo, index) => {
         return (
-          <Todo key={todo} todo={todo} />
+          <Todo
+            key={index}
+            todo={todo}
+            index={index}
+            deleteTodo={deleteTodo}
+            toggleTodo={toggleTodo}
+          />
         );
       })}
     </div>

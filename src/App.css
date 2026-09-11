@@ -57,3 +57,8 @@ h1{
   font-size: 1.05rem;
   margin-left: 10px;
 }
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

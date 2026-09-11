@@ -14,9 +14,30 @@ function App() {
 
   function addTodo() {
     if (inputVal !== '') {
-      setTodos((prevTodos) => [...prevTodos, inputVal]);
+      const newTodo = {
+        text: inputVal,
+        completed: false
+      };
+
+      setTodos((prevTodos) => [...prevTodos, newTodo]);
       setInputVal('');
     }
+  }
+
+  function deleteTodo(index) {
+    setTodos((prevTodos) =>
+      prevTodos.filter((_, i) => i !== index)
+    );
+  }
+
+  function toggleTodo(index) {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo, i) =>
+        i === index
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      )
+    );
   }
 
   return (
@@ -29,7 +50,11 @@ function App() {
         addTodo={addTodo}
       />
 
-      <TodoContainer todos={todos} />
+      <TodoContainer
+        todos={todos}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+      />
     </main>
   );
 }
